@@ -1,0 +1,12 @@
+Terminologiía 
+Flexbox y css grig puede convivir entre ellos dos
+Flexbox es una sola dm¿imención, en cambio css grid se trabaja tanto horizontal como vertical.
+
+Grid line: existes gri lene verticales y horizontales.
+
+Grid track: Es una fila que esta conformada por varios cuadrados o grid cell, Cuando se juntan, se llaman grid track Vertical o grid track horizontal.
+
+grid cell es un cuadrado o una porción de un grid container.
+
+grid area esta conformado por x grid cell en formas horizontal y vertical iguales.
+

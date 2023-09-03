@@ -1,0 +1,39 @@
+main {
+    /*Aquí le decimos a nuestra página que es un grid*/
+    display: grid;
+    /*Su ancho ocupe todo el ancho disponible de la pantalla*/
+    height: 100vh;
+    /*el grip gap  da un espacio entre los grid cells*/
+    grid-gap: .3em;
+    /*Aquí le informamos al grid template cuantas columnas tendrá en el ejemlo declaramos 4 columnas*/
+    /*Podemos incluso utilizar auto y automaticamente, los tamaños de las columnas de ajustan*/
+    grid-template-columns: auto auto auto auto;
+    /*Establecemos la cantidad de filas de nuestro contenedor*/
+    grid-template-rows: auto auto auto;
+}
+
+div{
+    display: flex;
+    /*Alineado horixontal*/
+    justify-content: center;
+    /*Alineado vertical*/
+    align-items: center;
+    background-color: brown;
+}
+
+div:last-child{
+    background-color: aquamarine;
+    /*Indicamos el inicio y fin de un grid cell*/
+    /* grid-column-start: 3;
+    grid-column-end: -1; */
+    grid-column: 3/-1;
+}
+
+div:nth-child(6){
+    background-color: burlywood;
+    /* Posicionamiento en columnas inicia / finaliza*/
+    grid-column: 2/-1;
+    /* Posicionamiento en filas*/
+    grid-row: 2/-1;
+    
+}
