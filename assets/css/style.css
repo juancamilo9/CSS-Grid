@@ -6,16 +6,18 @@
 main {
     height: 100vh;
     display: grid;
-    grid-gap: 2px;
+    grid-gap: 10px;
     /*Definimos la cantidad de columnas de nuestra página*/
     grid-template-columns:
         [siderbar-start] 1fr
-        [contenido-start] 2fr;
+        [siderbar-end contenido-start] 2fr
+        [contenido-end];
     /* Definimos la cantidad de filas*/
     grid-template-rows:
         [header-start] 1fr
-        [contenido-start] 1fr
-        [footer-start] 1fr
+        [header-end contenido-start] 1fr
+        [contenido-end footer-start] 1fr
+        [footer-end];
 }
 
 main> *{
@@ -26,16 +28,19 @@ main> *{
 }
 
 header{
-    grid-column: siderbar-start/-1;
+    grid-column: siderbar-start/contenido-end;
+    grid-row: header-start/header-end;
 }
 aside{
-    grid-row: contenido-start;
+    grid-row: contenido-start/footer-end;
+    grid-column: siderbar-start/siderbar-end;
 }
 
 article{
-    grid-column: contenido-start;
+    grid-column: contenido-start/contenido-end;
+    grid-row: contenido-start/contenido-end;
 }
 
 footer{
-    grid-column: siderbar-start/-1;
+    grid-column: contenido-start/contenido-end;
 }
