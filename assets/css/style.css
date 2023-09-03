@@ -8,11 +8,13 @@ main {
     display: grid;
     grid-gap: 10px;
     /*Definimos la cantidad de columnas de nuestra página*/
+    /*Grid lines de izquierda a derecha verticalmente.*/
     grid-template-columns:
         [siderbar-start] 1fr
         [siderbar-end contenido-start] 2fr
         [contenido-end];
     /* Definimos la cantidad de filas*/
+    /*Grid lines de arriba hacia abajo horizontalmente.*/
     grid-template-rows:
         [header-start] 1fr
         [header-end contenido-start] 1fr
