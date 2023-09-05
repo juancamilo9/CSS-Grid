@@ -7,19 +7,14 @@ main {
     height: 100vh;
     display: grid;
     grid-gap: 10px;
-    /*Definimos la cantidad de columnas de nuestra página*/
-    /*Grid lines de izquierda a derecha verticalmente.*/
-    grid-template-columns:
-        [siderbar-start] 1fr
-        [siderbar-end contenido-start] 2fr
-        [contenido-end];
-    /* Definimos la cantidad de filas*/
-    /*Grid lines de arriba hacia abajo horizontalmente.*/
-    grid-template-rows:
-        [header-start] 1fr
-        [header-end contenido-start] 1fr
-        [contenido-end footer-start] 1fr
-        [footer-end];
+    /*el fr, ayuda ha aprovechar de mejor manera el espacio disponible de una pantalla
+    Como punto adicional, estas medidas se pueden mezclar con cualquier otra medida como % px
+    */
+    grid-template-columns: 1fr 1fr 1fr;
+    /*Debemos se los más explcitos posible asi que tambien es recomendable  establecer las filas*/
+    /*Es lo mismo que escribir grid-template-rows: 1fr 1fr 1fr*/
+    grid-template-rows: repeat(3,1fr);
+    
 }
 
 main> *{
@@ -29,20 +24,18 @@ main> *{
     align-items: center;
 }
 
-header{
-    grid-column: siderbar-start/contenido-end;
-    grid-row: header-start/header-end;
+/**Algo de responsive con fr*/
+/*Para tablet*/
+@media(max-width:991.98px){
+    main{
+        grid-template-columns: repeat(2 ,1fr);
+        grid-template-rows: repeat(5,1fr);
+    }
 }
-aside{
-    grid-row: contenido-start/footer-end;
-    grid-column: siderbar-start/siderbar-end;
-}
-
-article{
-    grid-column: contenido-start/contenido-end;
-    grid-row: contenido-start/contenido-end;
-}
-
-footer{
-    grid-column: contenido-start/contenido-end;
+/*Para movil*/
+@media(max-width:575.98px){
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9,1fr);
+    }
 }
