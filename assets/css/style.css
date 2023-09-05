@@ -3,25 +3,16 @@
     padding: 0;
 }
 
+
 main {
     height: 100vh;
     display: grid;
     grid-gap: 10px;
-    /*Hay una forma de hacer layouts mas sencilla con los gris-template-area*/
-    /*Areas mobile*/
-    grid-template-areas:
-        "header"
-        "aside-izquierdo"
-        "centro"
-        "aside-derecho"
-        "footer";
-    
-    grid-template-rows:
-        3.9rem
-        3fr
-        6fr
-        3fr
-        6rem;
+    grid-template-columns:
+    repeat(8,minmax(min-content,max-content))
+    /* Para que el contenido no se desborderepeat(8, minmax(min-content,30%))*/
+    /*Para que el tamaño de las columnas nunca baje de 100px repeat; (8,minmax(100px,1fr))*/
+    /*Hacer un patron: repeat(4, 60px minmax(20%,1fr))*/;
 }
 
 main > *{
@@ -30,50 +21,3 @@ main > *{
     justify-content: center;
     align-items: center;
 }
-
-/* Primero debemos nombrar las ares de nuuestra página lo más descriptivo posible*/
-
-header{grid-area: header;}
-
-.aside-izquierdo{grid-area: aside-izquierdo;}
-
-article{grid-area: centro;}
-
-.aside-derecho{grid-area: aside-derecho;}
-
-footer{grid-area: footer;}
-
-/*Para tabletas*/
-@media(min-width:600px){
-    main{
-        grid-template-areas:
-        "header header"
-        "centro centro"
-        "aside-izquierdo aside-derecho"
-        "footer footer";
-
-        grid-template-rows:
-            3.9rem
-            8fr
-            4fr
-            6rem;
-    }
-}
-
-/*Para dispositivos de escritorio*/
-@media(min-width:1000px){
-    main{
-        grid-template-areas:
-        "header header aside-derecho"
-        "aside-izquierdo centro aside-derecho"
-        "aside-izquierdo footer aside-derecho";
-
-        grid-template-rows:
-            3.9rem
-            8fr
-            6rem;
-
-        grid-template-columns: 1fr 4fr 1fr;
-    }
-}
-
