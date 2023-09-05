@@ -7,35 +7,73 @@ main {
     height: 100vh;
     display: grid;
     grid-gap: 10px;
-    /*el fr, ayuda ha aprovechar de mejor manera el espacio disponible de una pantalla
-    Como punto adicional, estas medidas se pueden mezclar con cualquier otra medida como % px
-    */
-    grid-template-columns: 1fr 1fr 1fr;
-    /*Debemos se los más explcitos posible asi que tambien es recomendable  establecer las filas*/
-    /*Es lo mismo que escribir grid-template-rows: 1fr 1fr 1fr*/
-    grid-template-rows: repeat(3,1fr);
+    /*Hay una forma de hacer layouts mas sencilla con los gris-template-area*/
+    /*Areas mobile*/
+    grid-template-areas:
+        "header"
+        "aside-izquierdo"
+        "centro"
+        "aside-derecho"
+        "footer";
     
+    grid-template-rows:
+        3.9rem
+        3fr
+        6fr
+        3fr
+        6rem;
 }
 
-main> *{
+main > *{
     background: blueviolet;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/**Algo de responsive con fr*/
-/*Para tablet*/
-@media(max-width:991.98px){
+/* Primero debemos nombrar las ares de nuuestra página lo más descriptivo posible*/
+
+header{grid-area: header;}
+
+.aside-izquierdo{grid-area: aside-izquierdo;}
+
+article{grid-area: centro;}
+
+.aside-derecho{grid-area: aside-derecho;}
+
+footer{grid-area: footer;}
+
+/*Para tabletas*/
+@media(min-width:600px){
     main{
-        grid-template-columns: repeat(2 ,1fr);
-        grid-template-rows: repeat(5,1fr);
+        grid-template-areas:
+        "header header"
+        "centro centro"
+        "aside-izquierdo aside-derecho"
+        "footer footer";
+
+        grid-template-rows:
+            3.9rem
+            8fr
+            4fr
+            6rem;
     }
 }
-/*Para movil*/
-@media(max-width:575.98px){
+
+/*Para dispositivos de escritorio*/
+@media(min-width:1000px){
     main{
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(9,1fr);
+        grid-template-areas:
+        "header header aside-derecho"
+        "aside-izquierdo centro aside-derecho"
+        "aside-izquierdo footer aside-derecho";
+
+        grid-template-rows:
+            3.9rem
+            8fr
+            6rem;
+
+        grid-template-columns: 1fr 4fr 1fr;
     }
 }
+
