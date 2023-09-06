@@ -3,34 +3,36 @@
     padding: 0;
 }
 
-
-main {
-    height: 100vh;
+section{
     display: grid;
     grid-gap: 10px;
-    /*Regilla cuadricula*/
-    grid-template-columns:
-        /*repeat(12,1fr)*/
-        [start]
-        repeat(4,
-            [col-lg-start] minmax(100px,1fr)
-            [col-lg-end col-md-start] minmax(50px,1fr)
-            [col-md-end col-sm-start] minmax(20px,1fr)
-            [col-sm-end]
-        )
-        [end]
-        ;
+    margin: 20px 0;
 }
 
-div:first-of-type{
-    background: red;
-    /*Por medio de los nombres declarados en cada una de nuestras columnas, podemos establcer el inicio y el fin de cada una en otro lugar*/
-    grid-column: col-lg-start / col-sm-end;
-}
-
-main > *{
-    background: blueviolet;
+section div{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px;
+
+}
+
+.auto-fill div{
+    background-color: green;
+    color:white;
+}
+
+.auto-fit div{
+    background-color: red;
+    color:white;
+}
+
+.auto-fill{
+    /*Genera más bloques hasta completar el espacio disponible de la pantalla*/
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+}
+
+.auto-fit{
+    /* auto-fit, llena el espacio de nuestra pantalla con los bloques que se tengan disponibles, aumentando su tamaño de manera uniforme */
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
 }
