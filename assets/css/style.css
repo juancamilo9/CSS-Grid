@@ -4,23 +4,15 @@
 }
 
 section{
-    
-    width: 100vw;
     height: 100vh;
     display: grid;
     grid-gap: 2px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
-
-    /*Auto placement*/
-    grid-auto-rows: minmax(150px, 1fr);
-    grid-auto-columns: minmax(150px, 1fr);
-
-    /*Establecer el flujo de nuestro grid*/
-    /*Si se establece en colunm, tener en cuenta el grid-auto-column*/
-    /*Si se establece en row, tener en cuenta el grid-auto-row*/
-    grid-auto-flow: row dense;
-    /*El dense es un packing mode, que lo que hace es que si un grid cell tiene oportunidad de expandirce, lo haga*/
+    /*Estos son los elementos que controlamos */
+    grid-template-columns: 200px, 100px;
+    /*Aqui damos un manejo a elementos que no hemos controlado o que no sabemos si existiran*/
+    grid-auto-flow: column;
+    grid-auto-columns: 600px;
+    
 }
 
 section div{
@@ -29,26 +21,9 @@ section div{
     align-items: center;
     background: beige;
     border: 1px solid black;
-    border-radius: 5%;
 
 }
 
-div:nth-child(3n){
-    background: violet;
-    grid-column-end: span 2;
-
+div:first-of-type, div:nth-child(2){
+    background-color: red;
 }
-
-div:nth-child(8n){
-    background: blue;
-    grid-row-end: span 2;
-    
-}
-
-div:nth-child(14n){
-    background: green;
-    grid-column-end: span 2;
-    grid-row-end: span 2;
-    
-}
-
