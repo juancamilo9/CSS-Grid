@@ -7,12 +7,7 @@ section{
     height: 100vh;
     display: grid;
     grid-gap: 2px;
-    /*Estos son los elementos que controlamos */
-    grid-template-columns: 200px, 100px;
-    /*Aqui damos un manejo a elementos que no hemos controlado o que no sabemos si existiran*/
-    grid-auto-flow: column;
-    grid-auto-columns: 600px;
-    
+    grid-template-columns: repeat(auto-fit, minmax(30px,auto));
 }
 
 section div{
@@ -21,9 +16,31 @@ section div{
     align-items: center;
     background: beige;
     border: 1px solid black;
-
 }
 
-div:first-of-type, div:nth-child(2){
-    background-color: red;
+/*Con la propiedad order, podemos establecer el orden de un gridcell*/
+
+div:nth-child(1){
+    background-color: rgb(58, 226, 43);
+    color: white;
+    order:3;
+}
+
+div:nth-child(3){
+    background-color: rgb(43, 70, 226);
+    color: white;
+    order:2;
+}
+
+div:nth-child(2){
+    background-color: blueviolet;
+    color: white;
+    order:1;
+}
+
+
+div:nth-child(4){
+    background-color: rgb(226, 43, 144);
+    color: white;
+    order:3;
 }
