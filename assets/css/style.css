@@ -3,44 +3,45 @@
     padding: 0;
 }
 
-section{
-    height: 100vh;
+#grid-1{
+    height: 10vh;
     display: grid;
-    grid-gap: 2px;
-    grid-template-columns: repeat(auto-fit, minmax(30px,auto));
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
 }
 
-section div{
+div{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: beige;
-    border: 1px solid black;
+    
 }
 
-/*Con la propiedad order, podemos establecer el orden de un gridcell*/
+#grid-1 > div{
+    background: rgb(125, 90, 212);
 
-div:nth-child(1){
-    background-color: rgb(58, 226, 43);
-    color: white;
-    order:3;
 }
 
-div:nth-child(3){
-    background-color: rgb(43, 70, 226);
-    color: white;
-    order:2;
+/*Gird-2*/
+
+#grid-1 > div:nth-child(5){
+    background-color: rgb(255, 255, 255 );
+    display: block;
 }
 
-div:nth-child(2){
-    background-color: blueviolet;
-    color: white;
-    order:1;
+#grid-2{
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(3,1fr);
 }
 
-
-div:nth-child(4){
-    background-color: rgb(226, 43, 144);
+#grid-2 > div{
+    background: rgb(175, 64, 64);
+    height: 45px;
+    width: 147px;
     color: white;
-    order:3;
+    border: solid 1px white;
+    
 }
