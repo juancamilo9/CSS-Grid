@@ -8,81 +8,23 @@ main{
     display: grid;
     grid-gap: 10px;
 
-    grid-template-areas:
-        "header"
-        "izquierdo"
-        "centro"
-        "derecho1"
-        "derecho2"
-        "footer"
+    grid-template:
+        /*Filas / columnas*/
+        repeat(4,1fr) / repeat(3,1fr)
     ;
 
-    grid-template-rows: [inicio] 1fr [contenido-start] 1fr 4fr 1fr 1fr [fin] 1fr;
-    grid-template-columns: [inicio] 1fr [fin];
+    /*justify-item es utilizado para centar el contenido de un gridcell */
+    /*recibe parametros como center. end, start y stretch*/
+    justify-items:
+        stretch
+    ;
 }
 
 main > * {
-    display: flex;
     justify-content: center;
     align-items: center;
-    background: orange;
-    color: azure;
-}
-
-/*?Nombramos los gris areas*/
-header{grid-area: header;}
-
-.izquierdo{grid-area: izquierdo}
-
-article{grid-area: centro;}
-
-.derecho-1{grid-area: derecho1;}
-
-.derecho-2{grid-area: derecho2;}
-
-footer{grid-area: footer;}
-
-
-
-@media(min-width:650px){
-    main{
-        grid-template-areas:
-            /*filas*/
-            "header header"
-            "izquierdo izquierdo"
-            "centro centro"
-            "derecho1 derecho2"
-            "footer footer"
-        ;
-
-        grid-template-rows: [inicio] 1fr [contenido-start] 1fr 4fr 1fr [fin] 1fr;
-        grid-template-columns: [inicio] 1fr [contenido-start] 1fr [fin];
-    }
-}
-
-/**/
-@media(min-width:900px){
-    main{
-
-        grid-template:
-        /*Filas*/
-        [inicio] "header header header" 1fr
-        [contenido-start] "izquierdo centro derecho1" 2fr
-        "izquierdo centro derecho2" 1fr
-        "footer footer footer" 1fr [fin]
-        /
-        /*Columnas*/
-        [inicio] 1fr [contenido-start] 2fr 1fr [fin]
-        ;
-
-        /* grid-template-areas:
-            "header header header"
-            "izquierdo centro derecho1"
-            "izquierdo centro derecho2"
-            "footer footer footer"
-        ;
-
-        grid-template-rows: [inicio] 1fr [contenido-start] 2fr 1fr 1fr [fin];
-        grid-template-columns: [inicio] 1fr [contenido-start] 2fr 1fr [fin]; */
-    }
+    display: flex;
+    color:black;
+    background-color: blueviolet;
+    border: solid 1px black;
 }
