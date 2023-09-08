@@ -15,14 +15,16 @@ main{
 
     /*justify-item es utilizado para centar el contenido de un gridcell */
     /*recibe parametros como center. end, start y stretch*/
+    
+    /*Alinear verticalcamente*/
     justify-items:
-        stretch
+        center
     ;
+    /*Aliena horizontalmente*/
+    align-items: stretch;
 }
 
 main > * {
-    justify-content: center;
-    align-items: center;
     display: flex;
     color:black;
     background-color: blueviolet;
